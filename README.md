@@ -16,3 +16,8 @@ _Sous Intellij :_
 3. Rentrez un numéro de port
 4. Compilez et executez "Client.java"
 5. Rentrez le numéro de port du serveur et l'adresse ip du serveur
+
+
+## Langages
+
+- Java
