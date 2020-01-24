@@ -3,7 +3,7 @@
 
 ## Auteur
 
-* **Julien Le Roux, en colaboration avec Alan Le Verge**
+* **Julien Le Roux, en collaboration avec Alan Le Verge**
 
 
 ## Téléchargement
