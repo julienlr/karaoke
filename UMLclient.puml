@@ -1,0 +1,81 @@
+@startuml
+
+Panel -- Window
+
+Voice o-- Song
+
+Song -- Midi
+Window -- Midi
+
+Voice <-- Panel
+
+Midi -- Client
+
+class Client {
+}
+
+
+
+class Midi {
+private Sequence sequence;
+Sequencer sequencer;
+Window window;
+String sentence;
+Song receivedSong;
+init()
+start()
+stop()
+changeVelocity()
+displayLyrics(MetaMessage message)
+setSentence(String message)
+listener(final Sequencer sequencer)
+decodeMessage(MetaMessage message)
+}
+
+class Panel extends JPanel {
+int width
+int length
+int space
+String lyrics
+Voice voice
+paintComponent(Graphics g)
+drawCenteredString(Graphics g, Font font)
+}
+
+class Window extends JFrame {
+int width
+int height
+}
+
+class Voice implements Serializable {
+String name
+int id
+boolean enable = true
+Color color
+isEnable()
+setEnable(boolean enable)
+getName()
+setName(String name)
+getId()
+setId(int id)
+}
+
+class Song implements Serializable {
+int id
+String title
+List<Voice> voices
+Voice currentVoice
+int tempo
+int velocity
+displaySingers()
+sendSingers(PrintWriter output)
+getVoice(int id)
+updateVoice(String message)
+updateParameters()
+setTempo(int tempo)
+setVelocity(int velocity)
+}
+
+
+
+@enduml

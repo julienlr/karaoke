@@ -1,0 +1,81 @@
+@startuml
+
+
+
+
+ClientTreatment -- Server
+Statistics -- ClientTreatment
+ServerContainer -- ClientTreatment
+
+Song o-- ServerContainer
+Voice o-- Song
+
+
+
+class Server{
+}
+
+
+
+
+class ClientTreatment {
+Socket socketClient;
+ServerContainer container;
+PrintWriter output;
+BufferedReader input;
+copy(File file, File copy)
+sendQuestion(String[] msg)
+start()
+}
+
+class Statistics {
+File file
+update(List<String[]> lines, int track)
+List<String[]> getInfo()
+boolean getUsername(String username)
+List<String> max()
+
+}
+
+
+
+class Voice implements Serializable {
+String name
+int id
+boolean enable = true
+Color color
+isEnable()
+setEnable(boolean enable)
+getName()
+setName(String name)
+getId()
+setId(int id)
+}
+
+class Song implements Serializable {
+int id
+String title
+List<Voice> voices
+Voice currentVoice
+int tempo
+int velocity
+displaySingers()
+sendSingers(PrintWriter output)
+getVoice(int id)
+updateVoice(String message)
+updateParameters()
+setTempo(int tempo)
+setVelocity(int velocity)
+}
+
+class ServerContainer implements Serializable {
+ServerSocket serverSocket
+List<Song> songs
+initContainer()
+sendPlaylist(PrintWriter output)
+addSong(Song song)
+getSong(int id)
+}
+
+
+@enduml
